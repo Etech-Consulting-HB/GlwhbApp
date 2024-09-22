@@ -1,0 +1,274 @@
+>Etechconsulting LLC All Rights Reserved
+
+
+#09/19/2024
+-----------
+Introduction to Git and Github :
+
+In today's session, we are going to see:
+# Github operations: adding memebers to an organization, adding members to a repository
+# adding external members to our repository. 
+# what is git and github and why are they important
+# what is an organisation in github
+# what is a repository in github
+## Protecting branches in github.
+
+
+In order to complete this tutorial, you'll need the a gmail account.:
+GitHub account:
+(Create an account, create an organization, invite members to that organization)
+
+Invite members to your organization (Inside collaborators but their level of access to specific
+repos can be controlled at the repository level)
+Invite members to your repository (you can optionally invite inside collaborator or external
+collaborator)
+
+
+
+What is git:
+Git is a version control system which lets you track changes you make to your computer files over time. 
+With Git, you can revert to various states of your files (like a time traveling machine).
+You can also make a copy of your file, make changes to that copy, 
+and then merge these changes to the original copy.
+
+why is git important:
+Collaboration: Git enables collaborative work, and it makes merging different versions of the 
+same project simple while minimizing the potential for conflicts.  
+
+
+what is github?:
+GitHub is a web-based platform that provides hosting for Git repositories, as well as a range of 
+collaborative features and tools for software development teams this include.
+developers, DevOps engineers, SRE's etc
+
+What is an organization in github?:
+In GitHub, an "organization" is a special type of account that is designed for
+groups that want to collaborate on GitHub projects.
+
+what is a repository in github?:
+A repository in git is a collection of files and directories that are 
+version-controlled using Git 
+
+Differences between Git and GitHub:
+Git is a version control system that manages and keeps track of your code.
+GitHub, on the other hand, is a service that let you host, share, and manage your code files on the internet. 
+GitHub uses Git underneath, and lets you manage your Git repositories or folders easily on its platform.
+So Git is the actual version control system and GitHub is the platform where you host your code.
+
+Github operations:
+Create a github account  
+Create an organization
+Invite members to that organization
+Create a github repository
+Grant users access to that github repository 
+
+Install git
+Demo how to add ssh keys at your organizational level
+# Demo how to add ssh keys to repository (Deploy keys). This key grant access only to a 
+single repository in your organization.
+what is the working area in git
+what is a staging area in git
+what is a local repository in git
+what is a remote repository in git
+what is a commit 
+# Demo branch protection
+
+
+Git Operations:
+How to Start Using Git and GitHub:
+>Step 1 – Install Git.
+# In order to install git you will have to install wsl using the command below.
+# install wsl: wsl --install (and follow the prompts)
+# Be patient and let it install.
+# After that type ubuntu in the search bar and click install.
+# When done, reboot your system.
+
+Git is primarily used via the command-line interface, which we can access with our system terminals.
+However, we first need to make sure that we have Git installed on our computers.
+#https://git-scm.com/downloads
+To install Git on Ubuntu
+1. Update the package index by running the following command:
+   sudo apt update
+2. Install Git by running the following command:
+   sudo apt-get install git   
+3. Verify that Git has been installed by running the following command:
+   git --version
+
+>Step 2 – Create a GitHub Account.
+Done already
+
+ 
+
+
+>Step 3 – Connect your GitHub account to Git.
+
+
+Configuring Your Name & Email:
+
+What is the command to setup your Git username:
+git config --global user.name "yourName" 
+example
+git config --global user.name "shirack"
+
+ What is the command to Confirm that you have set the Git username correctly:
+git config --global user.name 
+> etechconsultingllc 
+
+
+What is the command to setup your Git user email:
+$ git config --global user.email "shirach@etechconsultingllc.com"  
+
+What is the command to Confirm that you have set the email address correctly in Git:
+$ git config --global user.email
+>etechconsultingllc
+GitHub uses your commit email address to associate commits with your account on GitHub.com.
+Run this command on your linux server to generate an ssh key pair 
+ ssh-keygen -t rsa -C "your_email@example.com" -f ~/.ssh/id_rsa
+ replace you_email@example.com with your actual email.
+cat ~/.ssh/id_rsa.pub
+#cat id_rsa.pub, copy contents to your github repository.
+
+
+>Step 4 - Create and clone a github repo and clone it locally
+
+>Step 5 – Create and edit your code files in the repo cloned in step 4 locally
+
+>Areas in git:
+  There are three core areas to git. These are 
+  ----------->the Working Area, 
+  ----------->the Staging Area (also known as Index), and 
+  ----------->the Local Repository. 
+  When working in a git repository files and modifications will travel from the 
+  Working Area to ----------->the Staging Area and finish in the ----------->Local Repository.
+
+The working area :   
+What is the working area in git?:
+In Git, the "working area" (also known as "working directory" or "working tree") refers to the 
+directory in your file system where you are currently working on files that are being tracked by Git.
+
+It is where your files live. This area is also known as the “untracked” area of git. Any changes to files will be
+marked and seen in the Working area. Here if you make changes and do not explicitly save them to
+git, you will lose the changes made to your files. This loss of changes occurs because git is not
+aware of the files or changes in the Working Area until you tell it to pay attention to them. If
+you make changes to files in your working area git will recognize that they are modified, but until
+you tell git “Hey pay attention to these files,” it won’t save anything that goes on in them.
+How can you see what is in your Working area?:
+$git status  (to see the files in your working directory)
+
+
+
+The Staging Area :
+What is the staging area?: 
+In Git, the "staging area" is a temporary storage area where you 
+can prepare changes to your project files before committing them to the Git repository. 
+These saved changes reflect in the .git directory.
+
+How can you see what is in your Staging Area?:
+$git status (To see the files in the staging area)
+When you make changes to files in your working area, you can use the "git add" command to add 
+these changes to the staging area. This tells Git that you want to include these changes in the 
+next commit that you make to the repository.
+Once you have added all of the changes that you want to include in your next commit 
+to the staging area, you can then use the "git commit" command to create a new 
+commit in the repository. The changes in the staging area will be included in 
+this commit.
+
+What is a commit?:
+  In Git, a "commit" is like a snapshot of the changes made to your project files at 
+  a specific point in time.
+
+Git Repositories:
+What is a git repository?:
+A Git repository is a container for a project that is tracked by Git.
+
+what is a local repository?:
+It is the repository that you work with directly, using Git commands to manage 
+changes to your project files, create commits, and view the project history. 
+
+What is a remote repository in git?:
+ It is a copy of your local repository that is stored on a remote server, 
+ and it can be accessed and modified by you and other collaborators.  
+
+
+**************************************************************************************************
+>Stage 6 - Staging and committing code
+
+Committing is the process in which the changes are 'officially' added to the Git repository. In Git,
+we can consider commits to be snapshots or checkpoints of your project at its current state. In
+other words, we basically save the current version of our code in a commit. We can create as many
+commits as we need in the commit history, and we can go back and forth between commits to see the
+different revisions of our project code. That allows us to efficiently manage our progress and
+track the project as it gets developed.
+
+Commits are usually created at logical points as we develop our project, usually after adding in
+specific contents, features or modifications (like new functionalities or bug fixes, for example).
+
+*******Before we can commit our code, we need to place it inside the staging area.******
+#clone your remote repository to your local environment.
+
+
+Checking the status While located inside the project folder in our terminal, we can type the
+following command to check the status of our repository: 
+  Start an ec2 instance, get some scripts and test on there:
+  $git status
+  $touch calculator.sh
+  $git status
+--+:
+We can add the untracked project files to
+the staging area based on the information from the git status command
+
+At a later point, git status will report any modifications that we made to our tracked files before
+we decide to add them to the staging area again
+
+How to add a file to the staging area in Git:
+The command below will add a file to the staging area. Just replace filename_here with the name of 
+the file you want to add to the staging area from the working area.
+$git add Calculator.sh
+
+ 
+We can add a multiple files to the staging area with the following command:
+
+$git add script.sh file2.yaml file3.tf
+
+Instead of having to add the files individually, we can also add all the files inside the project
+folder to the staging area at once
+in that case use the wildcard . and every file will be added for you.
+
+$git add .
+
+$git ls-files --stage (to list all the files in the staging area)
+
+
+Making commits:
+What is a commit? : 
+A commit is like a snapshot of our code at a particular time, which we are saving to
+the commit history of our repository. After adding all the files that we want to track to the
+staging area with the `git add` command, we are ready to make a commit
+
+To commit the files from the staging area, we use the following command
+
+$git commit -m "Commit message"
+
+Inside the quotes, we should write a commit message which is used to identify it in the commit
+history. Write meaningful commit messages.
+
+The commit message should be a descriptive summary of the changes that you are committing to the
+repository.
+
+After executing that command, you will get the technical details about the commit printed in the
+terminal. And that's basically it, you have successfully made a commit in your project!
+
+
+=======================================================================================
+
+How to commit changes (and skip the staging area) in Git:
+You can add and commit tracked files with a single command by using the -a and -m options.
+
+$git commit -a -m "your commit message here"
+
+$git diff (This command tell you the exact changes that you have made to a file)
+
+To revert to a previous version of your file :
+git log  
+$git reset --hard <commit harsh>
+
